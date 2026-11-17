@@ -1,0 +1,6 @@
+Voces opcionales de la persona (una por fase):
+  fase 1 -> el archivo "voz" + 1 + ".mp3"   ("Disculpa... perdí el último tren y no conozco esta zona. ¿Me dices cómo salgo a una avenida?")
+  fase 2 -> "voz" + 2 + ".mp3"              ("Se me cayó la billetera en el bus... no tengo cómo volver a mi casa. ¿Me ayudas?")
+  fase 3 -> "voz" + 3 + ".mp3"              ("Se me apagó el celular... y ese señor me mira hace rato. ¿Me prestas tu teléfono? Una llamada.")
+  fase 4 -> "voz" + 4 + ".mp3"              ("Me siento mareada... nadie se detiene. Sé que me están viendo. Solo quédate conmigo un ratito.")
+Ponlos en esta carpeta. Si faltan, se usa la voz del sistema (speechSynthesis).

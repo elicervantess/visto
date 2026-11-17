@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VISTO</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/visto.css">
+</head>
+<body>
+  <!-- Todo se dibuja a 1920x1080 dentro de #escenario y se escala a la pantalla -->
+  <div id="escenario">
+
+    <!-- ============ BARRA SUPERIOR ============ -->
+    <header id="barra">
+      <div class="marca neon-m">VISTO</div>
+      <div class="contador feedc"><span class="lbl">Mirando el feed</span><span class="num" id="nFeed">0</span></div>
+      <div class="contador persc"><span class="lbl">Mirando a la persona</span><span class="num" id="nPersona">0</span></div>
+      <div class="medidor">
+        <span class="lbl">Indiferencia de la sala</span>
+        <div class="barra-ind"><div id="indBarra"></div></div>
+        <span class="num" id="indPct">0%</span>
+      </div>
+      <div class="fases" id="fases"><i></i><i></i><i></i><i></i></div>
+    </header>
+
+    <!-- ============ ESCENA PRINCIPAL ============ -->
+    <main id="escena">
+      <section id="feed">
+        <div class="col" id="col0"></div>
+        <div class="col" id="col1"></div>
+        <div id="toasts"></div>
+        <div id="feedFlash"></div>
+      </section>
+
+      <section id="persona">
+        <div id="luzFeed"></div>
+        <div id="halo"></div>
+        <div id="figura"></div>
+        <div id="subtitulo"></div>
+        <div id="escuchas">escuchas: <b id="nEscuchas">0</b></div>
+      </section>
+
+      <canvas id="fx"></canvas>
+    </main>
+
+    <!-- ============ EL ESPEJO ============ -->
+    <footer id="espejo">
+      <canvas id="espejoCanvas"></canvas>
+      <div class="espejo-lbl">el espejo · <span id="modoTxt">cámara</span></div>
+      <div id="espejoInfo">buscando caras…</div>
+    </footer>
+
+    <div id="scanlines"></div>
+    <div id="vineta"></div>
+
+    <!-- ============ INICIO ============ -->
+    <div id="intro" class="capa">
+      <div class="intro-titulo neon-m" id="introTitulo">VISTO</div>
+      <div class="intro-sub">sentir sin actuar</div>
+      <button id="btnIniciar">Iniciar</button>
+      <button id="btnRespaldo" class="link">iniciar sin cámara (modo respaldo)</button>
+      <p class="privacidad" id="privacidad"></p>
+      <p class="estado" id="estadoCarga">preparando…</p>
+    </div>
+
+    <!-- ============ DESENLACE ============ -->
+    <div id="final" class="capa oculto">
+      <div class="f-linea" id="fFrase"></div>
+      <div class="f-stats">
+        <div><b id="fEscuchas">0</b><span>escuchas</span></div>
+        <div><b id="fMax">0 s</b><span>la mirada más larga hacia ella</span></div>
+        <div><b id="fPersonas">0</b><span>personas detectadas (máx.)</span></div>
+      </div>
+      <canvas id="fGrafico" width="1500" height="300"></canvas>
+      <div class="f-visto" id="fVisto"><span class="checks">✓✓</span> <span id="fVistoTxt">Visto</span></div>
+      <div class="f-cierre" id="fCierre"></div>
+      <div class="f-teclas">R reiniciar · L descargar CSV</div>
+    </div>
+
+    <div id="apagon" class="oculto"></div>
+  </div>
+
+  <!-- ============ DEBUG (D) y PANEL (H): fuera del escenario, sin escalar ============ -->
+  <div id="debug" class="oculto">
+    <canvas id="debugCanvas" width="480" height="270"></canvas>
+    <pre id="debugTxt"></pre>
+  </div>
+
+  <div id="panel" class="oculto">
+    <h3>Ajustes (H para cerrar)</h3>
+    <div id="panelCampos"></div>
+    <div class="panel-botones">
+      <button id="pCalibrar">Calibrar centro (C)</button>
+      <button id="pInvertir">Invertir izq/der (X)</button>
+      <button id="pReset">Valores por defecto</button>
+    </div>
+    <p class="ayuda">Teclas: C calibrar · X invertir · D debug · H panel · F/P simular feed/persona · B modo respaldo · M espejo claro/estilizado · N siguiente escena · E final · R reiniciar · L CSV</p>
+  </div>
+
+  <div id="aviso" class="oculto"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
